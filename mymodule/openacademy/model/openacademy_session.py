@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 class Session(models.Model):
 
@@ -15,9 +15,10 @@ class Session(models.Model):
     taken_seats = fields.Float(string="Taken seats", compute="_taken_seats")
 
     @api.one
-    @api.depends('seats', 'attendee_id')
+    @api.depends('seats', 'attendees_ids')
     def _taken_seats(self):
         if not self.seats:
-            self.taken_seats = 0
+            self.taken_seats = 0.0
         else:
-            self.taken_seats = 100.0 * len(self.attendee_ids) / self.seats
+            self.taken_seats = 100.0 * len(self.attendees_ids) / self.seats
+
