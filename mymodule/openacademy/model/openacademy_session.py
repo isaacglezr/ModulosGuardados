@@ -45,12 +45,3 @@ class Session(models.Model):
         if self.instructor_id and self.instructor_id in self.attendees_ids:
             raise exceptions.ValidationError("A session's instructor can't be an attendee")
 
-    _sql_constraints = [
-        ("name_description_check",
-         "CHECK(name != description",
-         "The title of the course should not be the description"),
-
-        ("name_unique",
-         "UNIQUE(name)",
-         "The course title must be unique"),
-    ]

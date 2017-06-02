@@ -10,6 +10,7 @@
                         <group>
                             <field name="name"/>
                             <field name="responsible_id"/>
+                            <field name="region"/>
                         </group>
                         <notebook>
                             <page string="Description">
@@ -39,6 +40,7 @@
                 <tree string="Course">
                    <field name="name"/>
                    <field name="responsible_id"/>
+                   <field name="region"/>
                 </tree>
             </field>
         </record>
