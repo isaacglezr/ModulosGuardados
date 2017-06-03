@@ -16,6 +16,8 @@ class Session(models.Model):
     taken_seats = fields.Float(string="Taken seats", compute="_taken_seats")
     active = fields.Boolean(default=True)
     end_date = fields.Datetime(string="End Date", store=True, compute="_get_end_date", inverse="_set_end_date")
+    hours = fields.Float(string="Duration in hours", compute='_get_hours', inverse='_set_hours')
+
     @api.one
     @api.depends('seats', 'attendees_ids')
     def _taken_seats(self):
@@ -65,6 +67,15 @@ class Session(models.Model):
                     'message': "Increase seats or remove excess attendees",
                 },
             }
+
+    @api.depends('duration')
+    def _get_hours(self):
+        for r in self:
+            r.hours = r.duration * 24
+
+    def _set_hours(self):
+        for r in self:
+            r.duration = r.hours / 24
 
     @api.one
     @api.constrains('instructor_id', 'attendees_ids')
