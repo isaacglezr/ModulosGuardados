@@ -45,8 +45,9 @@
             <field name="name">session.calendar</field>
             <field name="model">openacademy.session</field>
             <field name="arch" type="xml">
-            <calendar string="Session Calendar" date_start="start_date" date_stop="end_date" color="instructor_id">
-            </calendar>
+                <calendar string="Session Calendar" date_start="start_date" date_stop="end_date" color="instructor_id">
+                    <field name="name"/>
+                </calendar>
             </field>
         </record>
 
@@ -54,7 +55,7 @@
             <field name="name">Sessions</field>
             <field name="res_model">openacademy.session</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form,kanban, calendar</field>
+            <field name="view_mode">tree,form,kanban,calendar</field>
         </record>
 
         <menuitem id="session_menu" name="Sessions"
