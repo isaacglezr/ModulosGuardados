@@ -43,12 +43,12 @@ msgstr "Activo"
 #: model:ir.actions.act_window,name:openacademy.launch_session_wizard
 #: model:ir.ui.view,arch_db:openacademy.wizard_form_view
 msgid "Add Attendees"
-msgstr "Add Attendees"
+msgstr "Agregar Asistentes"
 
 #. module: openacademy
 #: model:ir.ui.menu,name:openacademy.menu_launch_session_wizard
 msgid "Add massive attendees"
-msgstr "Add massive attendees"
+msgstr "Agregar asistentes masivos"
 
 #. module: openacademy
 #: model:ir.model.fields,field_description:openacademy.field_openacademy_session_attendees_ids
